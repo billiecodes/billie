@@ -1,0 +1,28 @@
+<div class="container">
+  <div *ngIf="!isLoggedIn" class="login-form">
+    <h2>Login</h2>
+    <form (ngSubmit)="login()">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" [(ngModel)]="username" name="username" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+
+  <div *ngIf="isLoggedIn" class="upload-form">
+    <h2>Upload Photo</h2>
+    <form (ngSubmit)="onUpload()" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="photo">Select Photo:</label>
+        <input type="file" id="photo" (change)="onFileSelected($event)" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-success">Upload</button>
+    </form>
+    <button (click)="logout()" class="btn btn-secondary">Logout</button>
+  </div>
+</div>

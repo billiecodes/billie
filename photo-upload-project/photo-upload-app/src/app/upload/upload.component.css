@@ -1,0 +1,6 @@
+
+/* Add upload component specific styles here */
+.error-message {
+    color: red;
+    margin-top: 10px;
+  }
